@@ -1,4 +1,4 @@
-import * as THREE from '../../libs/three.js-r132/build/three.module.js';
+import * as THREE from 'https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js';
 
 const scene = new THREE.SCENE()
 const camera = new THREE.PerspectiveCamera(
