@@ -25,12 +25,12 @@ camera.position.x = -5
 camera.lookAt( 0, 0, 0)
 
 //Adding fog
-var fogColor = new THREE.Color(0x7c7c7c);
+var fogColor = new THREE.Color(0x999999);
 scene.fog = new THREE.Fog(fogColor, 0.5, 15);
 
 //Add grid helper
-const grid = new THREE.GridHelper( 200, 400, 0xffffff, 0x000000 )
-grid.material.opacity = 0.6
+const grid = new THREE.GridHelper( 200, 400, 0xffffff, 0xffffff )
+grid.material.opacity = 0.8
 grid.material.transparent = true
 scene.add( grid )
 
@@ -39,12 +39,20 @@ gltfLoader.load('./assets/GLB_TamakiEstate_02.glb', function (terrainScene) {
     
     //Adjust GLFT transforms
     terrainScene.scene.position.y = -0.1
-
-    //terrain.scene.scale.set(5, 5, 5)
-    //terrain.scene.rotation.z = 2
-
     scene.add( terrainScene.scene )
-    //scene.add( model );
+},
+    // called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	
 })   
 
 //Load Collada model
@@ -59,7 +67,6 @@ loader1.load('./assets/Wayfinding.dae', function (collada) {
     wayfinding.position.y = -0.19
     wayfinding.position.z = 0.30
     wayfinding.position.x = -0.40
-    //model.rotation.x = 1
     wayfinding.scale.set(0.19, 0.19, 0.19)
     
     const pylons = collada.scene.getObjectByName( 'pylon_signs' )
@@ -71,40 +78,28 @@ loader1.load('./assets/Wayfinding.dae', function (collada) {
     console.log(pylons)
 
     //Add GUI
-    const gui = new GUI( { title: 'Model Layers' } )
+    const gui = new GUI()
+    const folder = gui.addFolder("Layer Visibility")
 
-    gui.add( pylons, 'visible', true).onChange( function ( val ) {
-        pylons.visible = val
-    })
-    gui.add( wayout, 'visible', true).onChange( function ( val ) {
-        wayout.visible = val
-    })
-    gui.add( decision, 'visible', true).onChange( function ( val ) {
-        decision.visible = val
-    })
-    gui.add( regulatory, 'visible', true).onChange( function ( val ) {
-        regulatory.visible = val
-    })
-    gui.add( locations, 'visible', true).onChange( function ( val ) {
+    folder.add( locations, 'visible', true).name("Sign locations").onChange( function ( val ) {
         locations.visible = val
     })
-
-
-/*
-    const params = {
-					Pylons: pylons.visible,
-					WayOut Signage: wayout.visible,
-					Domes: decision.visible,
-					Regulatory signage: regulatory.visible,
-					Sign locations: locations.visible
-				}
-
-	gui.add( params, 'Pylons', true ).onChange( function ( val ) {
+    folder.add( pylons, 'visible', true).name("Pylons").onChange( function ( val ) {
         pylons.visible = val
     })
-*/
-    gui.open()
-
+    folder.add( wayout, 'visible', true).name("Egress signs").onChange( function ( val ) {
+        wayout.visible = val
+    })
+    folder.add( regulatory, 'visible', true).name("Regulatory signs").onChange( function ( val ) {
+        regulatory.visible = val
+    })
+    folder.add( decision, 'visible', true).name("Decision points").onChange( function ( val ) {
+        decision.visible = val
+    })
+    folder.add( wayfinding, 'visible', true).name("All").onChange( function ( val ) {
+        wayfinding.visible = val
+    })
+    folder.open()
 })
 
 //Create scene lights
