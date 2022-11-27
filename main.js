@@ -10,7 +10,7 @@ import {GUI} from 'https://unpkg.com/three@0.126.1/examples/jsm/libs/dat.gui.mod
 //Create constants
 let pylons, wayout, decision, wayfinding, regulatory, locations, groundPlane
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 35, innerWidth / innerHeight, 0.01, 1000 )
+const camera = new THREE.PerspectiveCamera( 55, innerWidth / innerHeight, 0.01, 1000 )
 const renderer = new THREE.WebGLRenderer()
 const gltfLoader = new GLTFLoader
 
@@ -19,18 +19,18 @@ animate()
 
 function init() {
 
-camera.position.z = 3
+camera.position.z = 2
 camera.position.y = 2.5
-camera.position.x = -5
-camera.lookAt( 0, 0, 0)
+camera.position.x = -2
+camera.lookAt( 4, 0, 0)
 
 //Adding fog
 var fogColor = new THREE.Color(0x999999);
-scene.fog = new THREE.Fog(fogColor, 0.5, 15);
+scene.fog = new THREE.Fog(fogColor, 0.5, 12);
 
 //Add grid helper
 const grid = new THREE.GridHelper( 200, 400, 0xffffff, 0xffffff )
-grid.material.opacity = 0.8
+grid.material.opacity = 0.3
 grid.material.transparent = true
 scene.add( grid )
 
