@@ -10,7 +10,7 @@ import {GUI} from 'https://unpkg.com/three@0.126.1/examples/jsm/libs/dat.gui.mod
 //Create constants
 let pylons, wayout, decision, wayfinding, regulatory, locations, groundPlane
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 55, innerWidth / innerHeight, 0.01, 1000 )
+const camera = new THREE.PerspectiveCamera( 75, innerWidth / innerHeight, 0.01, 1000 )
 const renderer = new THREE.WebGLRenderer()
 const gltfLoader = new GLTFLoader
 
@@ -19,10 +19,10 @@ animate()
 
 function init() {
 
-camera.position.z = 2
-camera.position.y = 2.5
-camera.position.x = -2
-camera.lookAt( 4, 0, 0)
+camera.position.z = 1.4
+camera.position.y = 2
+camera.position.x = -1
+camera.lookAt( 3, 0, 0)
 
 //Adding fog
 var fogColor = new THREE.Color(0x999999);
@@ -81,19 +81,20 @@ loader1.load('./assets/Wayfinding.dae', function (collada) {
     const gui = new GUI()
     const folder = gui.addFolder("Layer Visibility")
 
-    folder.add( locations, 'visible', true).name("Sign locations").onChange( function ( val ) {
-        locations.visible = val
-    })
-    folder.add( pylons, 'visible', true).name("Pylons").onChange( function ( val ) {
+
+    folder.add( pylons, 'visible', false).name("Pylons").onChange( function ( val ) {
         pylons.visible = val
     })
-    folder.add( wayout, 'visible', true).name("Egress signs").onChange( function ( val ) {
+    folder.add( wayout, 'visible', false).name("Egress signs").onChange( function ( val ) {
         wayout.visible = val
     })
-    folder.add( regulatory, 'visible', true).name("Regulatory signs").onChange( function ( val ) {
+    folder.add( regulatory, 'visible', false).name("Regulatory signs").onChange( function ( val ) {
         regulatory.visible = val
     })
-    folder.add( decision, 'visible', true).name("Decision points").onChange( function ( val ) {
+    folder.add( locations, 'visible', false).name("Sign locations").onChange( function ( val ) {
+        locations.visible = val
+    })
+    folder.add( decision, 'visible', false).name("Decision points").onChange( function ( val ) {
         decision.visible = val
     })
     folder.add( wayfinding, 'visible', true).name("All").onChange( function ( val ) {
