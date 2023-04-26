@@ -1,145 +1,116 @@
-import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js'
-//import * as dat from 'dat.gui'
-import {OrbitControls} from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js'
-import {GLTFLoader} from 'https://unpkg.com/three@0.126.1/examples/jsm/loaders/GLTFLoader.js'
-import {ColladaLoader} from 'https://unpkg.com/three@0.126.1/examples/jsm/loaders/ColladaLoader.js'
-import {GUI} from 'https://unpkg.com/three@0.126.1/examples/jsm/libs/dat.gui.module'
+// Grant CesiumJS access to your ion assets
+Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
 
-//console.log(dat)
+// Create a Viewer with terrain - remove widgets
+const viewer = new Cesium.Viewer("cesiumContainer", {
+  terrainProvider: Cesium.createWorldTerrain(),
+  timeline: false,
+  geocoder: false,
+  sceneModePicker: false,
+  navigationHelpButton: false,
+  baseLayerPicker: false,
+  animation: false,
+  searchButton: false,
+  homeButton: false,
+  infoBox: false
+});
 
-//Create constants
-let pylons, wayout, decision, wayfinding, regulatory, locations, groundPlane
-const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 75, innerWidth / innerHeight, 0.01, 1000 )
-const renderer = new THREE.WebGLRenderer()
-const gltfLoader = new GLTFLoader
+// Remove Cesium logo
+viewer._cesiumWidget._creditContainer.style.display = "none";
 
-init()
-animate()
+// Import data source file
+const dataSourcePromise = Cesium.CzmlDataSource.load("data.czml");
+viewer.dataSources.add(dataSourcePromise);
+//console.log(viewer.dataSources);
 
-function init() {
+// Create a custom InfoBox
+const container = document.getElementById("cesiumContainer");
+const infoBox = document.createElement("div");
+const topDiv = document.createElement("div");
+const botDiv = document.createElement("div");
+topDiv.classList.add("top-div");
+botDiv.classList.add("bot-div");
+infoBox.classList.add("custom-infobox");
+infoBox.appendChild(topDiv);
+infoBox.appendChild(botDiv);
+container.appendChild(infoBox);
 
-camera.position.z = 1.4
-camera.position.y = 2
-camera.position.x = -1
-camera.lookAt( 3, 0, 0)
+// Load model
+(async () => {
+  "use strict";
+  try {
+    const resource = await Cesium.IonResource.fromAssetId(1599421);
+    const position = Cesium.Cartesian3.fromDegrees(174.85545, -36.890315, 59.4);
+    const orientation = Cesium.Transforms.headingPitchRollQuaternion(position, new Cesium.HeadingPitchRoll(-219.63, -0.05, -0.01));
+    const entity = viewer.entities.add({
+      name: "TamakiModel",
+      position: position,
+      orientation: orientation,
+      description: "Tamaki Business Estate",
+      model: {
+        uri: resource,
+        scale: 7.0
+      },
+    });
 
-//Adding fog
-var fogColor = new THREE.Color(0x999999);
-scene.fog = new THREE.Fog(fogColor, 0.5, 12);
-
-//Add grid helper
-const grid = new THREE.GridHelper( 200, 400, 0xffffff, 0xffffff )
-grid.material.opacity = 0.3
-grid.material.transparent = true
-scene.add( grid )
-
-//Load GLTF model
-gltfLoader.load('./assets/GLB_TamakiEstate_02.glb', function (terrainScene) {
-    
-    //Adjust GLFT transforms
-    terrainScene.scene.position.y = -0.1
-    scene.add( terrainScene.scene )
-},
-    // called while loading is progressing
-	function ( xhr ) {
-
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened' );
-
-	
-})   
-
-//Load Collada model
-const loadingManager1 = new THREE.LoadingManager( function() {
-    scene.add(wayfinding)
-})
-
-const loader1 = new ColladaLoader(loadingManager1)
-loader1.load('./assets/Wayfinding.dae', function (collada) {
-
-    wayfinding = collada.scene
-    wayfinding.position.y = -0.19
-    wayfinding.position.z = 0.30
-    wayfinding.position.x = -0.40
-    wayfinding.scale.set(0.19, 0.19, 0.19)
-    
-    const pylons = collada.scene.getObjectByName( 'pylon_signs' )
-    const wayout = collada.scene.getObjectByName( 'wayout_signs' )
-    const decision = collada.scene.getObjectByName( 'decision_points' )
-    const regulatory = collada.scene.getObjectByName( 'regulatory_signs' )
-    const locations = collada.scene.getObjectByName( 'locations' )
-
-    console.log(pylons)
-
-    //Add GUI
-    const gui = new GUI()
-    const folder = gui.addFolder("Layer Visibility")
-
-
-    folder.add( pylons, 'visible', false).name("Pylons").onChange( function ( val ) {
-        pylons.visible = val
-    })
-    folder.add( wayout, 'visible', false).name("Egress signs").onChange( function ( val ) {
-        wayout.visible = val
-    })
-    folder.add( regulatory, 'visible', false).name("Regulatory signs").onChange( function ( val ) {
-        regulatory.visible = val
-    })
-    folder.add( locations, 'visible', false).name("Sign locations").onChange( function ( val ) {
-        locations.visible = val
-    })
-    folder.add( decision, 'visible', false).name("Decision points").onChange( function ( val ) {
-        decision.visible = val
-    })
-    folder.add( wayfinding, 'visible', true).name("All").onChange( function ( val ) {
-        wayfinding.visible = val
-    })
-    folder.open()
-})
-
-//Create scene lights
-const ambient = new THREE.AmbientLight(0x303030, 10.0)
-const hemiLight = new THREE.HemisphereLight( 0xe5fbfc, 0x080820, 2 )
-scene.add(hemiLight, ambient)
-
-//Create OrbitController
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.minDistance = 0.1
-controls.maxDistance = 7
-controls.enablePan = true
-controls.maxPolarAngle = Math.PI/2 - 0.2
-
-//Window resize
-window.addEventListener( 'resize', onWindowResize )
-
-//Set renderer options
-renderer.setSize(innerWidth, innerHeight)
-renderer.setPixelRatio(devicePixelRatio)
-document.body.appendChild(renderer.domElement)
-
-//Resize window
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight )
+  viewer.trackedEntity = entity;
+  } catch (error) {
+    console.log(error);
 }
-}
+  
+})();
 
-//Animate
-function animate() {
-    requestAnimationFrame(animate)
-    //box.rotation.x += 0.01
-    render()
-}
+// Custom infoBox logic
+viewer.selectedEntityChanged.addEventListener((selectedEntity) => {
+console.log(selectedEntity)
 
-//Render
-function render() {
-    renderer.render(scene, camera)
-}
+  if (selectedEntity === undefined || selectedEntity.name === "TamakiModel") {
+    // No entity is currently selected or TamakiModel entity is selected
+    if (infoBox.classList.contains("open")) {
+      infoBox.classList.remove("open");
+      infoBox.classList.add("close");
+    }
+  } else if (selectedEntity instanceof Cesium.Entity) {
+    // An entity has been selected
+    if (infoBox.classList.contains("close")) {
+      infoBox.classList.remove("close");
+      infoBox.classList.add("open");
+    } else if (infoBox.classList.contains("open")) {
+      // Close the infoBox first before reopening it with updated information
+      infoBox.classList.remove("open");
+      infoBox.classList.add("close");
+      setTimeout(() => {
+        infoBox.classList.remove("close");
+        infoBox.classList.add("open");
+
+        // Split Description into parts
+        var description = selectedEntity.description.getValue();
+        var parts = description.split("<hr>");
+        topDiv.innerHTML = parts[0];
+        botDiv.innerHTML = parts[1];
+      }, 300);
+      return;
+    } else {
+      infoBox.classList.add("open");
+    }
+    var description = selectedEntity.description.getValue();
+    var parts = description.split("<hr>");
+
+    topDiv.innerHTML = parts[0];
+    botDiv.innerHTML = parts[1];
+  }
+});
+
+infoBox.addEventListener('click', (event) => {
+
+  if (event.target === infoBox) {
+      console.log("YES")
+  }
+});
+
+
+/* CODE SNIPPETS
+-36.89072172745562, 174.85554813871818
+
+*/
+
