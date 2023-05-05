@@ -38,9 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mesh.position.setFromMatrixPosition(reticle.matrix);
       mesh.scale.y = Math.random() * 2 + 1;
       scene.add(mesh);
-    });
-
-    controller.addEventListener('select', () => {
 
       loader.load( 'models/MainID_augmented.glb', function ( glb ) {
 
@@ -77,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error( error );
         } 
       );
-  
+
     });
 
     renderer.xr.addEventListener("sessionstart", async (e) => {
