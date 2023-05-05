@@ -1,5 +1,5 @@
-import * as THREE from '../../libs/three.js-r132/build/three.module.js';
-import {ARButton} from '../../libs/three.js-r132/examples/jsm/webxr/ARButton.js';
+import * as THREE from 'https://cdn.skypack.dev/three@0.134.0/build/three.module.js';
+import { ARButton } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/webxr/ARButton.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const initialize = async() => {
