@@ -30,14 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const controller = renderer.xr.getController(0);
     scene.add(controller);
 
+    const loader = new GLTFLoader();
 
     controller.addEventListener('select', () => {
+
       const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06); 
       const material = new THREE.MeshBasicMaterial({ color: 0xffffff * Math.random()});
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.setFromMatrixPosition(reticle.matrix);
       mesh.scale.y = Math.random() * 2 + 1;
       scene.add(mesh);
+
 
       loader.load( 'models/MainID_augmented.glb', function ( glb ) {
 
