@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const model = glb.scene;
         model.position.setFromMatrixPosition(reticle.matrix);
-        model.scale.set(0.5, 0.5, 0.5);
+        model.scale.set(0.2, 0.2, 0.2);
         console.log(model);
 
         // Create lights
