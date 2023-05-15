@@ -46,8 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const model = glb.scene;
         model.position.setFromMatrixPosition(reticle.matrix);
-        model.scale.set(0.2, 0.2, 0.2);
-        model.rotation.y = -Math.PI / 2;
+        model.scale.set(0.3, 0.3, 0.3);
+        //model.rotation.y = -Math.PI / 2;
+
+        // Rotate model to face camera
+        const cameraPosition = new THREE.Vector3();
+        camera.getWorldPosition(cameraPosition);
+        const modelToCameraDirection = new THREE.Vector3();
+        modelToCameraDirection.subVectors(cameraPosition, model.position).normalize();
+        const targetQuaternion = new THREE.Quaternion();
+        targetQuaternion.setFromUnitVectors(new THREE.Vector3(0, 0, -1), modelToCameraDirection);
+        model.setRotationFromQuaternion(targetQuaternion);
 
         // Create lights
         const pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
