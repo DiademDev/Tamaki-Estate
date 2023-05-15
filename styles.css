@@ -75,7 +75,7 @@ a:hover, a:active {
   }
 
   .custom-infobox::before {
-    content: "Sign Location"; /* add the title text */
+    content: "SIGN DETAILS"; /* add the title text */
     font-weight: bold;
     position: absolute; /* position the title bar absolutely */
     top: 0; /* position the title bar at the top of the container */
@@ -101,10 +101,21 @@ a:hover, a:active {
   .bot-div {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(172, 171, 171);
-    width: 500px; /* set the width of the title bar to 100% of the container */
+    width: 250px; /* set the width of the title bar to 100% of the container */
     height: 150px; /* set the height of the title bar */
     background-color: none;
     padding: 20px;
+    float: left;
+  }
+
+  .rightSide-div {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(172, 171, 171);
+    width: 250px; /* set the width of the title bar to 100% of the container */
+    height: 170px; /* set the height of the title bar */
+    background-color: none;
+    padding: 20px;
+    float: right;
   }
 
   .custom-infobox.open {
@@ -133,3 +144,82 @@ a:hover, a:active {
       right: -100%;
     }
   }
+
+  .custom-QRwindow {
+    font-family: Arial, Helvetica, sans-serif;
+    content: "whats up!";
+    color: rgb(214, 58, 58);
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding-top: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: -3px 5px 5px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+    max-height: 80%;
+  }
+  
+  .top-div-QRwindow {
+    justify-content: center;
+    width: 250px; 
+    height: 250px; 
+    background-color: #3b485d;
+    padding: 0px;
+  }
+
+  .bot-div-QRwindow {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(66, 67, 67);
+    width: 215px; 
+    height: 150px;
+    background-color: none;
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+
+  .mid-div-QRwindow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 250px; 
+    height: 170px;
+    background-color: white;
+    padding-top: 0px;
+}
+
+  .custom-QRwindow.open {
+    display: block;
+    position: absolute;
+    top: -100%; 
+    animation: slide-in-QRwindow 1s forwards; 
+  }
+
+  .custom-QRwindow.close {
+    animation: slide-out-QRwindow 1s forwards;
+  }
+  
+  @keyframes slide-in-QRwindow {
+    100% {
+      top: 400px;
+    }
+  }
+  
+  @keyframes slide-out-QRwindow {
+    0% {
+      top: 400PX;
+    }
+    100% {
+      top: -100%;
+    }
+
+  }
+ 
+  

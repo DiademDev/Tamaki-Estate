@@ -6,7 +6,7 @@
     {    
     "id": "Label-01",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",    
     "billboard": {      
         "image": "img/ID1f-01.png", 
         "scale": 0.5,
@@ -20,7 +20,7 @@
       {    
     "id": "Label-02",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/IMG_5306.JPG' alt='Secondary entry photo' width= '600' height='450'><hr><strong>ID2f-02</strong><br>3m Freestanding Pylon<br>Non-Illuminated<br>Double-sided<br>Located at secondary entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",   
  
     "billboard": {      
         "image": "img/ID2f-02.png",      
@@ -33,7 +33,7 @@
         {    
     "id": "Label-03",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/IMG_5306.JPG' alt='Secondary entry photo' width= '600' height='450'><hr><strong>ID2f-02</strong><br>3m Freestanding Pylon<br>Non-Illuminated<br>Double-sided<br>Located at secondary entrance of Pilkington Road<br><br><a href='geometry.html' target='_blank'>3D model example</a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
          "image": "img/ID2f-03.png",      
@@ -46,7 +46,7 @@
           {    
     "id": "Label-04",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/IMG_5349.JPG' alt='Secondary entry photo' width= '600' height='450'><hr><strong>ID2f-03</strong><br>3m Freestanding Pylon<br>Non-Illuminated<br>Double-sided<br>Located at secondary entrance of Pilkington Road<br><br><a href='geometry.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/ID2f-03.png",      
@@ -59,7 +59,7 @@
     {    
     "id": "Label-05",    
     "name": "Freestanding Directional Sign",    
-    "description": "<img src='photos/IMG_5310.JPG' alt='Main entry directional photo' width= '600' height='450'><hr><strong>D1f-05</strong><br>3m Freestanding Pylon<br>Non-Illuminated<br>Double-sided<br>Located inside main entrance<br><br><a href='geometry2.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/D1f-05.png",      
@@ -72,7 +72,7 @@
       {    
     "id": "Label-06",    
     "name": "Freestanding Directional Sign",    
-    "description": "<img src='photos/IMG_5306.JPG' alt='Directional photo' width= '600' height='450'><hr><strong>D1f-06</strong><br>3m Freestanding Pylon<br>Non-Illuminated<br>Double-sided<br>Located inside main entrance<br><br><a href='geometry.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/D1f-06.png",      
@@ -85,7 +85,7 @@
         {    
     "id": "Label-07",    
     "name": "Fence Mounted",    
-    "description": "<img src='photos/IMG_5377.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-10</strong><br>Wall Mounted Flat Panel<br>Non-Illuminated<br>Single-sided<br>Located inside main entrance<br><br><a href='geometry.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/R1w-10.png",      
@@ -98,7 +98,7 @@
         {    
     "id": "Label-08",    
     "name": "Fence Mounted",    
-    "description": "<img src='photos/IMG_5377.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-11</strong><br>Fence Mounted Flat Panel<br>Non-Illuminated<br>Single-sided<br>Located on back fence<br><br><a href='geometry.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/R1w-11.png",      
@@ -111,7 +111,7 @@
         {    
     "id": "Label-09",    
     "name": "Wall Mounted",    
-    "description": "<img src='photos/IMG_5379.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-12</strong><br>Fence Mounted Flat Panel<br>Non-Illuminated<br>Single-sided<br>Located on back fence<br><br><a href='geometry.html' target='_blank'>3D model example </a></p>",    
+    "description": "<img src='photos/IMG_5306.JPG' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry2.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
   
     "billboard": {      
         "image": "img/R1w-12.png",      

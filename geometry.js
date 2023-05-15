@@ -41,6 +41,31 @@ function init() {
 		} 
 	);
 
+	// Create a custom QRwindow
+	const container = document.getElementById("container");
+	const QRwindow = document.createElement("div");
+	const topQRwindowDiv = document.createElement("div");
+	const botQRwindowDiv = document.createElement("div");
+	const midQRwindowDiv = document.createElement("div");
+
+	QRwindow.classList.add("custom-QRwindow");
+	topQRwindowDiv.classList.add("top-div-QRwindow");
+	botQRwindowDiv.classList.add("bot-div-QRwindow");
+	midQRwindowDiv.classList.add("mid-div-QRwindow");
+
+	topQRwindowDiv.innerHTML = "<img src='img/QR_02.png' alt='QR code' width= '250' height='250'>";
+	botQRwindowDiv.innerHTML = "<p>Use your mobile device to</br>scan the QR code.</br><hr>If you have an iPhone you will</br>need to download XRViewer</br>first from the App store to scan the QR code.</p>";
+	midQRwindowDiv.innerHTML = "<img src='img/QR_WebXR.png' alt='QR code' width='120' height='120'><p>XRViewer</p>";
+
+	QRwindow.appendChild(topQRwindowDiv);
+	QRwindow.appendChild(botQRwindowDiv);
+	QRwindow.appendChild(midQRwindowDiv);
+
+
+	container.appendChild(QRwindow);
+
+	console.log(QRwindow);
+
 	// Create button rotating
 	var button1 = document.createElement( 'button' );
 	button1.innerHTML = "Rotation on/off";
@@ -55,7 +80,7 @@ function init() {
 	button1.style.height = '30px'
 	document.body.appendChild( button1 );
 
-	// Create button rotating
+	// Create button Day/Night
 	var button2 = document.createElement( 'button' );
 	button2.innerHTML = "Day/Night";
 	button2.style.position = 'absolute';
@@ -69,7 +94,26 @@ function init() {
 	button2.style.height = '30px'
 	document.body.appendChild( button2 );
 
-	// Add event listener to button
+	// Create button Augmented
+	var button3 = document.createElement( 'button' );
+	button3.innerHTML = "AR";
+	button3.style.position = 'absolute';
+	button3.style.top = '130px';
+	button3.style.right = '50px';
+	button3.style.color = "white";
+	button3.style.backgroundColor = "#404040";
+	button3.style.border = 'none';
+	button3.style.boxShadow = 'none'
+	button3.style.width = '150px'
+	button3.style.height = '30px'
+	document.body.appendChild( button3 );
+
+	// Button 1 EventListener
+	button1.addEventListener( 'click', function() {
+		isRotating = !isRotating;
+	});
+		
+	// Button 2 EventListener
 	button2.addEventListener( 'click', function() {
 		dayLight  = !dayLight;
 		if (dayLight) {
@@ -78,13 +122,23 @@ function init() {
 			nightFunc();
 		  }
 	});
-	
-	// Add event listener to button
-	button1.addEventListener( 'click', function() {
-		isRotating = !isRotating;
-	});
 
-	// Add an event listener to resize the renderer when the window is resized
+	// Button 3 EventListener
+	button3.addEventListener('click', function() {
+		if (QRwindow.classList.contains('close')) {
+		  QRwindow.classList.remove('close');
+		  QRwindow.classList.add('open');
+		} else if (QRwindow.classList.contains('open')) {
+		  QRwindow.classList.remove('open');
+		  QRwindow.classList.add('close');
+		} else if (!QRwindow.classList.contains('open')) {
+			QRwindow.classList.add('open');
+		}
+		console.log(QRwindow.classList);
+	  });
+	  
+
+	// Resize window/renderer EventListener
 	window.addEventListener('resize', function() {
 	var width = window.innerWidth;
 	var height = window.innerHeight;
