@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const model = glb.scene;
         model.position.setFromMatrixPosition(reticle.matrix);
-        model.scale.set(0.05, 0.05, 0.05);
-        console.log(model);
+        model.scale.set(0.2, 0.2, 0.2);
+        model.rotation.y = -Math.PI / 2;
 
         // Create lights
         const pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
