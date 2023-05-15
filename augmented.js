@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     controller.addEventListener('select', () => {
 
-      const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06); 
-      const material = new THREE.MeshBasicMaterial({ color: 0xffffff * Math.random()});
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.position.setFromMatrixPosition(reticle.matrix);
-      mesh.scale.y = Math.random() * 2 + 1;
-      scene.add(mesh);
+//       const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06); 
+//       const material = new THREE.MeshBasicMaterial({ color: 0xffffff * Math.random()});
+//       const mesh = new THREE.Mesh(geometry, material);
+//       mesh.position.setFromMatrixPosition(reticle.matrix);
+//       mesh.scale.y = Math.random() * 2 + 1;
+//       scene.add(mesh);
 
 
       loader.load( 'models/MainID_augmented.glb', function ( glb ) {
