@@ -6,7 +6,7 @@
     {    
     "id": "Label-01",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong><br><br>1500(w) x 5000(h)mm<br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>N/A</p>",    
+    "description": "<img src='photos/ID_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong> - 1500(w) x 5000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",    
     "billboard": {      
         "image": "img/ID1f-01.png", 
         "scale": 0.5,
