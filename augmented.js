@@ -34,14 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     controller.addEventListener('select', () => {
 
-//       const geometry = new THREE.BoxGeometry(0.06, 0.06, 0.06); 
-//       const material = new THREE.MeshBasicMaterial({ color: 0xffffff * Math.random()});
-//       const mesh = new THREE.Mesh(geometry, material);
-//       mesh.position.setFromMatrixPosition(reticle.matrix);
-//       mesh.scale.y = Math.random() * 2 + 1;
-//       scene.add(mesh);
-
-
       loader.load( 'models/MainID_augmented.glb', function ( glb ) {
 
         const model = glb.scene;
@@ -55,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modelToCameraDirection = new THREE.Vector3();
         modelToCameraDirection.subVectors(cameraPosition, model.position).normalize();
         const targetQuaternion = new THREE.Quaternion();
-        targetQuaternion.setFromUnitVectors(new THREE.Vector3(0, 0, -1), modelToCameraDirection);
+        targetQuaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 0), modelToCameraDirection);
         model.setRotationFromQuaternion(targetQuaternion);
 
         // Create lights
