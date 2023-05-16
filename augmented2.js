@@ -1,9 +1,7 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.134.0/build/three.module.js';
 import { ARButton } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/webxr/ARButton.js';
-import { XRControllerModelFactory } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/webxr/XRControllerModelFactory.js';
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/loaders/RGBELoader.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const initialize = async() => {
@@ -32,57 +30,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const controller = renderer.xr.getController(0);
     scene.add(controller);
 
-    var loader = new THREE.GLTFLoader();
+    const loader = new GLTFLoader();
 
-    // controller.addEventListener('select', () => {
+    controller.addEventListener('select', () => {
 
-    //   loader.load( 'models/MainID_augmented.glb', function ( glb ) {
+      loader.load( 'models/Directional_01_augmented.glb', function ( glb ) {
 
-    //     mesh = glb.scene;
-    //     mesh.position.setFromMatrixPosition(reticle.matrix);
+        const model = glb.scene;
+        model.position.setFromMatrixPosition(reticle.matrix);
+        model.scale.set(0.22, 0.22, 0.22);
+        //model.rotation.y = -Math.PI / 2;
 
-    //     	// Create lights
-    //     const pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
-    //     pointLight.position.set( 0, 15, 5 );
+        // Rotate model to face camera
+        const cameraPosition = new THREE.Vector3();
+        camera.getWorldPosition(cameraPosition);
+        const modelToCameraDirection = new THREE.Vector3();
+        modelToCameraDirection.subVectors(cameraPosition, model.position).normalize();
+        const targetQuaternion = new THREE.Quaternion();
+        targetQuaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 0), modelToCameraDirection);
 
-    //       const ambientLight1 = new THREE.AmbientLight(0x7690ca, 0.2);
-    //     const ambientLight2 = new THREE.AmbientLight(0x7690ca, 0.3);
+        // const additionalRotation = new THREE.Euler(0, THREE.MathUtils.degToRad(120), 0, 'XYZ');
+        // targetQuaternion.multiply(targetQuaternion.setFromEuler(additionalRotation));
 
-    //     const spotLight = new THREE.SpotLight(0xfff7d8, 5);
-    //     spotLight.position.set(50, 100, 10);
-    //     spotLight.angle = Math.PI / 4;
-    //     spotLight.penumbra = 0.05;
-    //     spotLight.decay = 2;
-    //     spotLight.distance = 200;
-    //     spotLight.castShadow = true;
-    //     spotLight.shadow.mapSize.width = 2048;
-    //     spotLight.shadow.mapSize.height = 2048;
-    //     spotLight.shadow.camera.near = 0.5;
-    //     spotLight.shadow.camera.far = 500;
+        model.setRotationFromQuaternion(targetQuaternion);
 
-    //     /* const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
-    //     hemiLight.position.set( 0, 20, 0 );
-    //     scene.add( hemiLight ); */
+        // Create lights
+        const pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
+        pointLight.position.set( 0, 15, 5 );
 
-    //     scene.add( pointLight, ambientLight1, ambientLight2, spotLight);
-    //     scene.add( mesh );
+        const ambientLight1 = new THREE.AmbientLight(0x7690ca, 0.2);
+        const ambientLight2 = new THREE.AmbientLight(0x7690ca, 0.3);
+
+        const spotLight = new THREE.SpotLight(0xfff7d8, 5);
+        spotLight.position.set(50, 100, 10);
+        spotLight.angle = Math.PI / 4;
+        spotLight.penumbra = 0.05;
+        spotLight.decay = 2;
+        spotLight.distance = 200;
+        spotLight.castShadow = true;
+        spotLight.shadow.mapSize.width = 2048;
+        spotLight.shadow.mapSize.height = 2048;
+        spotLight.shadow.camera.near = 0.5;
+        spotLight.shadow.camera.far = 500;
+
+        /* const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+        hemiLight.position.set( 0, 20, 0 );
+        scene.add( hemiLight ); */
+
+        scene.add( pointLight, ambientLight1, ambientLight2, spotLight);
+        scene.add( model );
     
-    //   }, undefined, function ( error ) {
-    //     console.error( error );
-    //     } 
-    //   );
-  
-    // });
+      },undefined, function ( error ) {
+        console.error( error );
+        } 
+      );
 
-    
+    });
 
     renderer.xr.addEventListener("sessionstart", async (e) => {
       const session = renderer.xr.getSession();
       const viewerReferenceSpace = await session.requestReferenceSpace("viewer");
       const hitTestSource = await session.requestHitTestSource({space: viewerReferenceSpace});
 
-    renderer.setAnimationLoop((timestamp, frame) => {
-
+      renderer.setAnimationLoop((timestamp, frame) => {
 	if (!frame) return;
 
 	const hitTestResults = frame.getHitTestResults(hitTestSource);
