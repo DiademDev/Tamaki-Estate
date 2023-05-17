@@ -2,7 +2,10 @@
 Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
 Cesium.GoogleMaps.defaultApiKey = "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8";
 
-
+const camDestination = new THREE.Vector3( 174.86123170659084, -36.896425016735904, 500 );
+const camHeading = new THREE.Float32(5.647630456593914);
+const camPitch = new THREE.Float32(-0.5092018326918875);
+const camRoll = new THREE.Float32(0.00011791820395057329);
 
 async function main() {
 
@@ -100,14 +103,12 @@ infoBox.addEventListener('click', (event) => {
 
   viewer.scene.camera.flyTo({
     destination: Cesium.Cartesian3.fromDegrees(
-      174.86123170659084,
-      -36.896425016735904,
-      500
+      camDestination
     ),
     orientation: {
-      heading: 5.647630456593914,
-      pitch: -0.5092018326918875,
-      roll: 0.00011791820395057329
+      heading: camHeading,
+      pitch: camPitch,
+      roll: camRoll
     }
   });
 }
@@ -118,7 +119,18 @@ main();
 
 
 /* CODE SNIPPETS
--36.89072172745562, 174.85554813871818
+  viewer.scene.camera.flyTo({
+    destination: Cesium.Cartesian3.fromDegrees(
+      174.86123170659084,
+      -36.896425016735904,
+      500
+    ),
+    orientation: {
+      heading: 5.647630456593914,
+      pitch: -0.5092018326918875,
+      roll: 0.00011791820395057329
+    }
+  });
 
 // Create a Viewer with terrain - remove widgets
 const viewer = new Cesium.Viewer("cesiumContainer", {
