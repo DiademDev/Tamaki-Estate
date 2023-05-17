@@ -3,10 +3,10 @@ Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 Cesium.GoogleMaps.defaultApiKey = "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8";
 
 // Camera settings
-const camDestination = THREE.Vector3( 174.86123170659084, -36.896425016735904, 500 );
-const camHeading = THREE.Float32(5.647630456593914);
-const camPitch = THREE.Float32(-0.5092018326918875);
-const camRoll = THREE.Float32(0.00011791820395057329);
+const camDestination = Cesium.Cartesian3( 174.86123170659084, -36.896425016735904, 500 );
+const camHeading = Cesium.Math.float64ToFloat32(5.647630456593914);
+const camPitch = Cesium.Math.float64ToFloat32(-0.5092018326918875);
+const camRoll = Cesium.Math.float64ToFloat32(0.00011791820395057329);
 
 async function main() {
 
