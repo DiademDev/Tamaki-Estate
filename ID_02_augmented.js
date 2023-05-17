@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     controller.addEventListener('select', () => {
 
-      if(modelGrp === nil) {
+      if(modelGrp.length === 0) {
 
       loader.load( 'models/ID_02_augmented.glb', function ( glb ) {
 
@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scene.add( pointLight, ambientLight1, ambientLight2, spotLight);
         scene.add( model );
+
+        modelGrp.push( model );
     
       },undefined, function ( error ) {
         console.error( error );

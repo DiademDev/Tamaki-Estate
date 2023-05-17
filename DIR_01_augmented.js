@@ -31,8 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(controller);
 
     const loader = new GLTFLoader();
+    var modelGrp = [];
 
     controller.addEventListener('select', () => {
+
+      if(modelGrp.length === 0) {
 
       loader.load( 'models/Directional_01_augmented.glb', function ( glb ) {
 
@@ -79,12 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scene.add( pointLight, ambientLight1, ambientLight2, spotLight);
         scene.add( model );
+
+        modelGrp.push( model );
     
       },undefined, function ( error ) {
         console.error( error );
         } 
       );
-
+      };
     });
 
     renderer.xr.addEventListener("sessionstart", async (e) => {
