@@ -53,7 +53,7 @@ function init() {
 	botQRwindowDiv.classList.add("bot-div-QRwindow");
 	midQRwindowDiv.classList.add("mid-div-QRwindow");
 
-	topQRwindowDiv.innerHTML = "<img src='img/DIR_01.png' alt='QR code' width= '250' height='250'>";
+	topQRwindowDiv.innerHTML = "<img src='img/DIR-QR_01.png' alt='QR code' width= '250' height='250'>";
 	botQRwindowDiv.innerHTML = "<p>Use your mobile device to</br>scan the QR code.</br><hr>If you have an iPhone you will</br>need to download XRViewer</br>first from the App store to scan the QR code.</p>";
 	midQRwindowDiv.innerHTML = "<img src='img/QR_WebXR.png' alt='QR code' width='120' height='120'><p>XRViewer</p>";
 
