@@ -20,7 +20,7 @@
       {    
     "id": "Label-02",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",   
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",   
  
     "billboard": {      
         "image": "img/ID2f-02.png",      
@@ -33,7 +33,7 @@
         {    
     "id": "Label-03",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",     
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
   
     "billboard": {      
          "image": "img/ID2f-03.png",      
@@ -46,7 +46,7 @@
           {    
     "id": "Label-04",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",     
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
   
     "billboard": {      
         "image": "img/ID2f-03.png",      
@@ -59,7 +59,7 @@
     {    
     "id": "Label-05",    
     "name": "Freestanding Directional Sign",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",     
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='geometry.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
   
     "billboard": {      
         "image": "img/D1f-05.png",      
