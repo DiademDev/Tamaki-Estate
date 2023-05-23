@@ -1,6 +1,6 @@
 // Grant CesiumJS access to your ion assets
 Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
-//Cesium.GoogleMaps.defaultApiKey = "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8";
+Cesium.GoogleMaps.defaultApiKey = "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8";
 
 async function main() {
 
@@ -16,15 +16,15 @@ async function main() {
     infoBox: false
   });
 
-  viewer.scene.globe.show = true;
+  viewer.scene.globe.show = false;
 
   // Add Photorealistic 3D Tiles
-  // try {
-  //   const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-  //   viewer.scene.primitives.add(tileset);
-  // } catch (error) {
-  //   console.log(`Error loading Photorealistic 3D Tiles tileset.\n${error}`);
-  // }
+  try {
+    const tileset = await Cesium.createGooglePhotorealistic3DTileset();
+    viewer.scene.primitives.add(tileset);
+  } catch (error) {
+    console.log(`Error loading Photorealistic 3D Tiles tileset.\n${error}`);
+  }
 
 // Remove Cesium logo
 viewer._cesiumWidget._creditContainer.style.display = "none";
