@@ -48,18 +48,16 @@ infoBox.appendChild(botDiv);
 infoBox.appendChild(rightDiv);
 container.appendChild(infoBox);
 
-document.addEventListener("DOMContentLoaded", function() {
   var introWindow = document.getElementById("introWindow");
   introWindow.style.display = "block";
   
   setTimeout(function() {
     introWindow.style.opacity = "0";
-  }, 12000);
+  }, 8000);
   
   setTimeout(function() {
     introWindow.parentNode.removeChild(introWindow);
-  }, 13000);
-});
+  }, 9000);
 
 // Custom infoBox logic
 viewer.selectedEntityChanged.addEventListener((selectedEntity) => {
