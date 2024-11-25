@@ -27,7 +27,7 @@ function init() {
 	loader.load( 'models/Directional_01.glb', function ( glb ) {
 
 		mesh = glb.scene;
-    		mesh.scale.set(3, 3, 3);
+    		mesh.scale.set(5, 5, 5);
 		
 		mesh.traverse((node) => {
 			if (node.isMesh) {
