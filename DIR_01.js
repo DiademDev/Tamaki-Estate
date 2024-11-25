@@ -27,6 +27,8 @@ function init() {
 	loader.load( 'models/Directional_01.glb', function ( glb ) {
 
 		mesh = glb.scene;
+    		mesh.scale.set(3, 3, 3);
+		
 		mesh.traverse((node) => {
 			if (node.isMesh) {
 				node.castShadow = true; 
