@@ -1,6 +1,6 @@
 //import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/loaders/RGBELoader.js';
 
-var scene, camera, renderer, mesh, isRotating = true, dayLight = true;
+var scene, camera, renderer, mesh, isRotating = false, dayLight = true;
 
 init();
 animate();
