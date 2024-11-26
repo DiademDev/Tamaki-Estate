@@ -155,7 +155,7 @@ function init() {
 	pointLight.position.set( 0, 15, 5 );
 
   	const ambientLight1 = new THREE.AmbientLight(0x7690ca, 0.2);
-	const ambientLight2 = new THREE.AmbientLight(0x7690ca, 0.3);
+	const ambientLight2 = new THREE.AmbientLight(0x7690ca, 0.4);
 
 	const spotLight = new THREE.SpotLight(0xfff7d8, 20);
 	spotLight.position.set(20, 100, 50);
