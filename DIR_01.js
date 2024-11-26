@@ -12,7 +12,7 @@ function init() {
 	//scene.fog = new THREE.Fog( 0xa0a0a0, 10, 100 );
 
 
-	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
 	camera.position.z = 30;
   	camera.position.y = 7;
 
@@ -27,7 +27,7 @@ function init() {
 	loader.load( 'models/Directional_01.glb', function ( glb ) {
 
 		mesh = glb.scene;
-    		mesh.scale.set(5, 5, 5);
+    		mesh.scale.set(7, 7, 7);
 		
 		mesh.traverse((node) => {
 			if (node.isMesh) {
