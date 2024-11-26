@@ -158,7 +158,7 @@ function init() {
 	const ambientLight2 = new THREE.AmbientLight(0x7690ca, 0.3);
 
 	const spotLight = new THREE.SpotLight(0xfff7d8, 20);
-	spotLight.position.set(50, 100, -50);
+	spotLight.position.set(50, 100, 50);
 	spotLight.angle = Math.PI / 4;
 	spotLight.penumbra = 0.05;
 	spotLight.decay = 2;
