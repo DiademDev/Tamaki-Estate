@@ -169,7 +169,7 @@ function init() {
 	spotLight.shadow.mapSize.height = 2048;
 	spotLight.shadow.camera.near = 0.5;
 	spotLight.shadow.camera.far = 500;
-	spotLight.shadow.bias = 0.01;
+	spotLight.shadow.bias = 0.1;
 
 	/* const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
 	hemiLight.position.set( 0, 20, 0 );
